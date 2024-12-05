@@ -1,0 +1,413 @@
+[
+  {
+    "name": "Tigre du Bengale",
+    "lat": 22.5,
+    "lon": 88.5,
+    "image": "/img/tiger.png",
+    "status": "En danger critique",
+    "threat": "Chasse, perte d'habitat",
+    "description": "Le tigre du Bengale est menacé par la chasse illégale et la déforestation.",
+    "image2": "/img/image/tiger.jpg"
+  },
+  {
+    "name": "Panda géant",
+    "lat": 30.9,
+    "lon": 102.7,
+    "image": "/img/panda-bear.png",
+    "status": "Vulnérable",
+    "threat": "Déforestation",
+    "description": "Le panda géant est en danger en raison de la perte de son habitat naturel.",
+    "image2": "/img/image/panda.jpg"
+  },
+  {
+    "name": "Orang-outan de Bornéo",
+    "lat": -2.5,
+    "lon": 113.5,
+    "image": "/img/orangutan.png",
+    "status": "En danger critique",
+    "threat": "Déforestation, exploitation forestière",
+    "description": "Menacé par la perte de son habitat en raison de l'agriculture et de l'exploitation forestière.",
+    "image2": "/img/image/orangutan.jpg"
+  },
+  {
+    "name": "Gorille des montagnes",
+    "lat": -1.4,
+    "lon": 29.6,
+    "image": "/img/gorille.jpg",
+    "status": "En danger critique",
+    "threat": "Chasse illégale, perte d'habitat",
+    "description": "Les gorilles sont victimes de la chasse illégale et de la déforestation.",
+    "image2": "/img/image/tiger2.jpg"
+  },
+  {
+    "name": "Éléphant d'Afrique",
+    "lat": -1.5,
+    "lon": 30.0,
+    "image": "/img/elephant.png",
+    "status": "En danger",
+    "threat": "Chasse pour l'ivoire",
+    "description": "L'éléphant africain est chassé pour l'ivoire, ce qui entraîne une diminution de la population.",
+    "image2": "/img/image/elephant.jpg"
+  },
+  {
+    "name": "Rhinocéros noir",
+    "lat": -22.5,
+    "lon": 17.5,
+    "image": "/img/rhino.png",
+    "status": "En danger critique",
+    "threat": "Chasse illégale",
+    "description": "Chassé pour ses cornes, le rhinocéros noir est proche de l'extinction.",
+    "image2": "/img/image/rhino_noir.jpg"
+  },
+  {
+    "name": "Ours polaire",
+    "lat": 72.0,
+    "lon": -40.0,
+    "image": "/img/polar-bear.png",
+    "status": "Vulnérable",
+    "threat": "Changement climatique",
+    "description": "Le réchauffement climatique réduit leur habitat naturel en Arctique.",
+    "image2": "/img/image/ours_polaire.jpg"
+  },
+  {
+    "name": "Tortue verte",
+    "lat": 10.0,
+    "lon": -85.0,
+    "image": "/img/tortoise.png",
+    "status": "En danger",
+    "threat": "Pollution, braconnage",
+    "description": "Menacée par la chasse pour leur carapace et la pollution plastique.",
+    "image2": "/img/image/tortue.jpg"
+  },
+  {
+    "name": "Pingouin de Galapagos",
+    "lat": -0.5,
+    "lon": -90.5,
+    "image": "/img/penguin.png",
+    "status": "En danger",
+    "threat": "Changement climatique",
+    "description": "Les changements climatiques affectent leur approvisionnement alimentaire.",
+    "image2": "/img/image/pingouin.jpg"
+  },
+  {
+    "name": "Dauphin de l'Amazone",
+    "lat": -3.0,
+    "lon": -60.0,
+    "image": "/img/pink.png",
+    "status": "Vulnérable",
+    "threat": "Pollution, pêche",
+    "description": "Menacé par la pollution et la pêche dans les rivières de l'Amazone.",
+    "image2": "/img/image/dauphin-rose.jpg"
+  },
+  {
+    "name": "Loup gris",
+    "lat": 45.0,
+    "lon": -111.0,
+    "image": "/img/wolf.png",
+    "status": "Près de menacé",
+    "threat": "Perte d'habitat",
+    "description": "La perte de leur habitat naturel menace les populations de loups.",
+    "image2": "/img/image/loup.jpg"
+  },
+  {
+    "name": "Koala",
+    "lat": -30.0,
+    "lon": 151.0,
+    "image": "/img/koala.png",
+    "status": "Vulnérable",
+    "threat": "Déforestation",
+    "description": "Menacé par la perte de leur habitat d'eucalyptus.",
+    "image2": "/img/image/koala.jpg"
+  },
+  {
+    "name": "Ibis chauve",
+    "lat": 32.5,
+    "lon": 6.5,
+    "image": "/img/ibis.png",
+    "status": "En danger critique",
+    "threat": "Perte d'habitat",
+    "description": "Les ibis chauves sont en déclin rapide en raison de la destruction de leur habitat.",
+    "image2": "/img/image/ibis_chauve.jpg"
+  },
+  {
+    "name": "Léopard des neiges",
+    "lat": 42.0,
+    "lon": 75.0,
+    "image": "/img/snow-leopard.png",
+    "status": "Vulnérable",
+    "threat": "Chasse, fragmentation de l'habitat",
+    "description": "Menacé par la chasse illégale et la fragmentation de leur habitat.",
+    "image2": "/img/image/leopard.jpg"
+  },
+  {
+    "name": "Baleine bleue",
+    "lat": -33.0,
+    "lon": -71.0,
+    "image": "/img/whale.png",
+    "status": "En danger",
+    "threat": "Pollution marine",
+    "description": "Les baleines bleues sont sensibles à la pollution sonore et chimique des océans.",
+    "image2": "/img/image/baleine.jpg"
+  },
+  {
+    "name": "Tortue de mer caretta",
+    "lat": -20.0,
+    "lon": 55.0,
+    "image": "/img/turtle.png",
+    "status": "Vulnérable",
+    "threat": "Pollution plastique",
+    "description": "Les tortues caretta sont menacées par l'ingestion de plastique et la capture accidentelle.",
+    "image2": "/img/image/tortue_caretta.jpg"
+  },
+  {
+    "name": "Lamantin",
+    "lat": 26.7,
+    "lon": -81.5,
+    "image": "/img/manatee.png",
+    "status": "Vulnérable",
+    "threat": "Pollution, collisions avec des bateaux",
+    "description": "Le lamantin est souvent blessé par les bateaux dans son habitat fluvial.",
+    "image2": "/img/image/lamantin.jpg"
+  },
+  {
+    "name": "Aigle royal",
+    "lat": 35.0,
+    "lon": -118.0,
+    "image": "/img/eagle.png",
+    "status": "Moins préoccupant",
+    "threat": "Perte d'habitat",
+    "description": "L'aigle royal est affecté par la perte de son habitat forestier.",
+    "image2": "/img/image/aigle_royal.jpg"
+  },
+  {
+    "name": "Chauve-souris géante",
+    "lat": 7.0,
+    "lon": 81.0,
+    "image": "/img/bat.png",
+    "status": "En danger",
+    "threat": "Déforestation",
+    "description": "Espèce menacée en raison de la destruction de la forêt tropicale.",
+    "image2": "/img/image/bat.jpg"
+  },
+  {
+    "name": "Dragon de Komodo",
+    "lat": -8.5,
+    "lon": 119.5,
+    "image": "/img/komodo.png",
+    "status": "Vulnérable",
+    "threat": "Perte d'habitat",
+    "description": "Le dragon de Komodo est menacé par la déforestation et la perte de son habitat insulaire.",
+    "image2": "/img/image/komodo.jpg"
+  },
+  {
+    "name": "Perroquet Kakapo",
+    "lat": -45.0,
+    "lon": 169.5,
+    "image": "/img/kakapo.png",
+    "status": "En danger critique",
+    "threat": "Espèces invasives",
+    "description": "Espèce nocturne rare, menacée par les prédateurs introduits.",
+    "image2": "/img/image/kakapo.jpg"
+  },
+
+  {
+    "name": "Lynx ibérique",
+    "lat": 37.8,
+    "lon": -4.8,
+    "image": "/img/lynx.png",
+    "status": "En danger critique",
+    "threat": "Perte d'habitat, diminution de la proie",
+    "description": "Le lynx ibérique est l'un des félins les plus menacés au monde, en danger principalement en raison de la perte d'habitat.",
+    "image2": "/img/image/lynx.jpg"
+  },
+  {
+    "name": "Saola",
+    "lat": 18.0,
+    "lon": 105.5,
+    "image": "/img/saola.png",
+    "status": "En danger critique",
+    "threat": "Chasse, fragmentation de l'habitat",
+    "description": "Rarement observé, le saola est menacé par la chasse et la perte de son habitat forestier au Vietnam et au Laos.",
+    "image2": "/img/image/saola.jpg"
+  },
+  {
+    "name": "Phoque moine de Méditerranée",
+    "lat": 34.9,
+    "lon": 25.0,
+    "image": "/img/seal.png",
+    "status": "En danger critique",
+    "threat": "Perte d'habitat, interactions humaines",
+    "description": "Le phoque moine de Méditerranée est une espèce en déclin, affectée par le tourisme et la pollution marine.",
+    "image2": "/img/image/phoque_moine.jpg"
+  },
+  {
+    "name": "Ara de Spix",
+    "lat": -3.0,
+    "lon": -60.0,
+    "image": "/img/macaw.png",
+    "status": "Éteint à l'état sauvage",
+    "threat": "Capture illégale, perte d'habitat",
+    "description": "Ce perroquet bleu est éteint à l'état sauvage à cause du commerce illégal d'animaux exotiques.",
+    "image2": "/img/image/ara.jpg"
+  },
+  {
+    "name": "Guépard",
+    "lat": -12.0,
+    "lon": 23.0,
+    "image": "/img/cheetah.png",
+    "status": "Vulnérable",
+    "threat": "Perte d'habitat, chasse",
+    "description": "Les guépards sont en déclin en raison de la perte d'habitat et de la chasse illégale.",
+    "image2": "/img/image/guepard.jpg"
+  },
+  {
+    "name": "Tatou géant",
+    "lat": -10.0,
+    "lon": -55.0,
+    "image": "/img/armadillo.png",
+    "status": "Vulnérable",
+    "threat": "Déforestation, chasse",
+    "description": "Le tatou géant est menacé par la déforestation en Amazonie et la chasse pour sa viande.",
+    "image2": "/img/image/tatou.jpg"
+  },
+  {
+    "name": "Maki catta",
+    "lat": -20.0,
+    "lon": 47.0,
+    "image": "/img/lemur.png",
+    "status": "En danger",
+    "threat": "Déforestation, chasse",
+    "description": "Le maki catta, originaire de Madagascar, est en danger à cause de la déforestation et du braconnage.",
+    "image2": "/img/image/makis.jpg"
+  },
+  {
+    "name": "Vautour royal",
+    "lat": 27.6,
+    "lon": 82.2,
+    "image": "/img/vulture.png",
+    "status": "En danger critique",
+    "threat": "Empoisonnement",
+    "description": "Les vautours royaux sont menacés par l'empoisonnement involontaire lié à des médicaments vétérinaires.",
+    "image2": "/img/image/vautour.jpg"
+  },
+  {
+    "name": "Tortue Luth",
+    "lat": 10.0,
+    "lon": -85.0,
+    "image": "/img/sea.png",
+    "status": "Vulnérable",
+    "threat": "Pollution plastique, braconnage",
+    "description": "La plus grande des tortues marines, la tortue luth est vulnérable à la pollution et à la capture accidentelle.",
+    "image2": "/img/image/luth.jpg"
+  },
+  {
+    "name": "Ibis nippon",
+    "lat": 35.5,
+    "lon": 136.9,
+    "image": "/img/japan_ibis.png",
+    "status": "En danger",
+    "threat": "Perte d'habitat, chasse",
+    "description": "Ce grand échassier est principalement menacé par la perte de son habitat de marécages.",
+    "image2": "/img/image/ibis_japan.jpg"
+  },
+  {
+    "name": "Loup rouge",
+    "lat": 34.7,
+    "lon": -77.4,
+    "image": "/img/wolf1.png",
+    "status": "En danger critique",
+    "threat": "Chasse, perte d'habitat",
+    "description": "L'un des canidés les plus rares au monde, le loup rouge est menacé par la chasse et la perte de territoire.",
+    "image2": "/img/image/loup.jpg"
+  },
+  {
+    "name": "Aigle des Philippines",
+    "lat": 12.0,
+    "lon": 122.0,
+    "image": "/img/eagle1.png",
+    "status": "En danger critique",
+    "threat": "Déforestation",
+    "description": "Le plus grand aigle au monde est gravement menacé par la déforestation des forêts des Philippines.",
+    "image2": "/img/image/aigle_philippine.jpg"
+  },
+  {
+    "name": "Rhinocéros de Sumatra",
+    "lat": 2.0,
+    "lon": 102.0,
+    "image": "/img/rhino1.png",
+    "status": "En danger critique",
+    "threat": "Braconnage, perte d'habitat",
+    "description": "Ce rhinocéros est en danger critique en raison du braconnage pour sa corne et de la perte d'habitat.",
+    "image2": "/img/image/rhino_sumatra.jpg"
+  },
+  {
+    "name": "Narval",
+    "lat": 71.0,
+    "lon": -55.0,
+    "image": "/img/narwhal.png",
+    "status": "Quasi menacé",
+    "threat": "Changement climatique",
+    "description": "Connu pour sa longue défense, le narval est affecté par la fonte des glaces dans l'Arctique.",
+    "image2": "/img/image/narval.jpg"
+  },
+  {
+    "name": "Pygargue à tête blanche",
+    "lat": 45.0,
+    "lon": -125.0,
+    "image": "/img/eagle2.png",
+    "status": "Préoccupation mineure",
+    "threat": "Pollution, chasse",
+    "description": "Le pygargue est le symbole national des États-Unis, menacé autrefois par les pesticides.",
+    "image2": "/img/image/pygargue.jpg"
+  },
+  {
+    "name": "Calao rhinocéros",
+    "lat": -3.0,
+    "lon": 115.0,
+    "image": "/img/hornbill.png",
+    "status": "Vulnérable",
+    "threat": "Déforestation",
+    "description": "Symbole de Bornéo, ce calao est menacé par la déforestation.",
+    "image2": "/img/image/calao.jpg"
+  },
+  {
+    "name": "Renard de Darwin",
+    "lat": -39.5,
+    "lon": -73.8,
+    "image": "/img/fox.png",
+    "status": "En danger",
+    "threat": "Fragmentation de l'habitat",
+    "description": "Ce petit renard est menacé par la fragmentation de son habitat en Amérique du Sud.",
+    "image2": "/img/image/renard.jpg"
+  },
+  {
+    "name": "Grenouille dorée",
+    "lat": 9.0,
+    "lon": -79.0,
+    "image": "/img/frog.png",
+    "status": "En danger critique",
+    "threat": "Maladies, perte d'habitat",
+    "description": "Cette grenouille emblématique du Panama est gravement affectée par les maladies fongiques.",
+    "image2": "/img/image/grenouille.jpg"
+  },
+  {
+    "name": "Anaconda vert",
+    "lat": -4.0,
+    "lon": -63.0,
+    "image": "/img/anaconda.png",
+    "status": "Préoccupation mineure",
+    "threat": "Déforestation",
+    "description": "L'anaconda est menacé par la déforestation de l'Amazonie, qui détruit son habitat.",
+    "image2": "/img/image/anaconda.jpg"
+  },
+  {
+    "name": "Jaguar",
+    "lat": -9.0,
+    "lon": -66.0,
+    "image": "/img/jaguar.png",
+    "status": "Quasi menacé",
+    "threat": "Déforestation",
+    "description": "Ce grand félin d'Amérique du Sud est menacé par la déforestation rapide de son habitat.",
+    "image2": "/img/image/jaguar.jpg"
+  }
+]
