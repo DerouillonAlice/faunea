@@ -33,11 +33,11 @@
     "name": "Gorille des montagnes",
     "lat": -1.4,
     "lon": 29.6,
-    "image": "/img/gorille.jpg",
+    "image": "/img/gorilla.png",
     "status": "En danger critique",
     "threat": "Chasse illégale, perte d'habitat",
     "description": "Les gorilles sont victimes de la chasse illégale et de la déforestation.",
-    "image2": "/img/image/tiger2.jpg"
+    "image2": "/img/image/gorilla.jpg"
   },
   {
     "name": "Éléphant d'Afrique",
@@ -318,7 +318,7 @@
     "status": "En danger critique",
     "threat": "Chasse, perte d'habitat",
     "description": "L'un des canidés les plus rares au monde, le loup rouge est menacé par la chasse et la perte de territoire.",
-    "image2": "/img/image/loup.jpg"
+    "image2": "/img/image/loup_rouge.jpg"
   },
   {
     "name": "Aigle des Philippines",
@@ -328,7 +328,7 @@
     "status": "En danger critique",
     "threat": "Déforestation",
     "description": "Le plus grand aigle au monde est gravement menacé par la déforestation des forêts des Philippines.",
-    "image2": "/img/image/aigle_philippine.jpg"
+    "image2": "/img/image/aigle_philippines.jpg"
   },
   {
     "name": "Rhinocéros de Sumatra",
