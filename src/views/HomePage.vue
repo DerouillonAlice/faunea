@@ -9,18 +9,18 @@
     </div>
 
     <!-- Blocs animés -->
-    <div class="bg-peach p-8 text-center rounded-xl mx-4 my-8">
-      <p class="text-2xl font-bold text-white2">Espèces menacées dans le monde</p>
+    <div class="bg-sky p-8 text-center rounded-xl mx-4 my-8" >
+      <p class="text-2xl font-bold text-white2" >Espèces menacées dans le monde</p>
       <p ref="number" class="font-extrabold text-[60px] text-white2">{{ animatedNumber }}</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
 
-      <div ref="card2" class="bg-mint/30 p-6 rounded-xl text-center" data-aos="fade-right" data-aos-duration="1000">
+      <div ref="card2" class="bg-mint/30 p-6 rounded-xl text-center" data-aos="fade-top" data-aos-duration="1000">
         <p class="text-xl font-semibold text-mint mix-blend-multiply">Forêts détruites/an</p>
         <p ref="number2" class="text-3xl font-bold text-mint mix-blend-multiply">10M <span>ha</span></p>
       </div>
 
-      <div ref="card4" class="bg-coral/30 p-6 rounded-xl text-center" data-aos="fade-right" data-aos-duration="1000">
+      <div ref="card4" class="bg-coral/30 p-6 rounded-xl text-center" data-aos="fade-top" data-aos-duration="1000" data-aos-delay="3000">
         <p class="text-xl font-semibold text-coral mix-blend-multiply">Température +°C</p>
         <p ref="number4" class="text-3xl font-bold text-coral mix-blend-multiply">1.5°C</p>
       </div>
@@ -44,7 +44,15 @@
     <!-- Découvrir les animaux -->
     <div class="text-center bg-sky p-8 rounded-xl mx-4 my-8">
       <p class="text-xl font-semibold text-blue-600">Découvre les animaux par région</p>
-      <a href="./InteractiveMap" class="bg-yellow-500 text-white py-2 px-4 rounded-full mt-4">Explore</a>
+      <div class="flex justify-center">
+    <Icon name="earth" size="120" color="white" strokeWidth="2" />
+  </div>
+  <router-link
+    to="/map"
+    class="bg-yellow-500 text-white py-2 px-6 rounded-full mt-6 inline-flex items-center justify-center"
+  >
+    Explore
+  </router-link>
     </div>
   </div>
 </template>
@@ -59,12 +67,13 @@ export default {
   name: 'HomeViews',
   data() {
     return {
-      barChart: null, // Référence pour le Bar Chart
-      doughnutChart: null, // Référence pour le Doughnut Chart
-      animatedNumber: 0, // Nombre animé
-      targetNumber: 41415, // Valeur finale pour l'animation
-      barData: [25, 30, 20, 15, 10], // Données pour le Bar Chart
-      doughnutData: [40, 60], // Données pour le Doughnut Chart
+      barChart: null, 
+      doughnutChart: null,
+      animatedNumber: 0, 
+      targetNumber: 41415,
+      barData: [25, 30, 20, 15, 10], 
+      doughnutData: [0, 100], 
+      finalDoughnutData: [40, 60], 
     };
   },
   mounted() {
@@ -75,9 +84,16 @@ export default {
             this.initBarChart();
           } else if (entry.target === this.$refs.doughnutChart) {
             this.initDoughnutChart();
+            this.animateDoughnutChart(); 
           } else if (entry.target === this.$refs.number) {
             this.animateNumber();
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Arrêter l'observation une fois animé
+          } else if (entry.target === this.$refs.card2) {
+            this.animateCard2();
+            observer.unobserve(entry.target); // Arrêter l'observation une fois animé
+          } else if (entry.target === this.$refs.card4) {
+            this.animateCard4();
+            observer.unobserve(entry.target); // Arrêter l'observation une fois animé
           }
         }
       });
@@ -86,18 +102,23 @@ export default {
     observer.observe(this.$refs.barChart);
     observer.observe(this.$refs.doughnutChart);
     observer.observe(this.$refs.number);
+    observer.observe(this.$refs.card2);
+    observer.observe(this.$refs.card4);
   },
   methods: {
     animateNumber() {
       anime({
         targets: this,
         animatedNumber: this.targetNumber,
-        round: 1, // Arrondi à l'entier
+        round: 1, 
         easing: 'easeOutExpo',
         duration: 2000,
       });
     },
     initBarChart() {
+      if (this.barChart) {
+        this.barChart.destroy();
+      }
       this.barChart = new Chart(this.$refs.barChart, {
         type: 'bar',
         data: {
@@ -121,14 +142,17 @@ export default {
       });
     },
     initDoughnutChart() {
+      if (this.doughnutChart) {
+        this.doughnutChart.destroy();
+      }
       this.doughnutChart = new Chart(this.$refs.doughnutChart, {
         type: 'doughnut',
         data: {
           labels: ['Pollué', 'Non pollué'],
           datasets: [
             {
-              data: this.doughnutData,
-              backgroundColor: ['#36A2EB', '#FFCD56'],
+              data: this.doughnutData, // Données initiales
+              backgroundColor: ['#36A2EB', '#FFCD56'], // Bleu pour pollué, jaune pour non pollué
             },
           ],
         },
@@ -138,11 +162,60 @@ export default {
           plugins: {
             legend: { position: 'bottom' },
           },
-          animation: { duration: 1500 },
+          animation: { duration: 0 }, // Pas d'animation par défaut
         },
+      });
+    },
+    animateDoughnutChart() {
+      const targetPollution = this.finalDoughnutData[0]; // 40%
+      const totalDuration = 2000; // Durée totale de l'animation
+      const stepDuration = 50; // Pas entre chaque mise à jour
+      const steps = totalDuration / stepDuration; // Nombre d'étapes
+      const increment = targetPollution / steps; // Progression à chaque étape
+
+      let currentPollution = 0;
+
+      const interval = setInterval(() => {
+        currentPollution += increment;
+
+        if (currentPollution >= targetPollution) {
+          currentPollution = targetPollution; // Arrêter à la valeur cible
+          clearInterval(interval);
+        }
+
+        // Mise à jour des données
+        if (this.doughnutChart && this.doughnutChart.data && this.doughnutChart.data.datasets[0]) {
+          this.doughnutChart.data.datasets[0].data = [
+            currentPollution,
+            100 - currentPollution,
+          ];
+          // Mettre à jour le graphique
+          this.doughnutChart.update('none'); // 'none' désactive les animations internes
+        }
+      }, stepDuration);
+    },
+    animateCard2() {
+      anime({
+        targets: this.$refs.card2,
+        opacity: [0, 1],
+        translateY: [-100, 0],
+        easing: 'easeOutExpo',
+        duration: 1000,
+      });
+    },
+    animateCard4() {
+      anime({
+        targets: this.$refs.card4,
+        opacity: [0, 1],
+        translateY: [-100, 0],
+        easing: 'easeOutExpo',
+        duration: 1000,
       });
     },
   },
 };
+</script>
 
+<script setup>
+import Icon from '../components/Icon.vue'; 
 </script>
