@@ -1,6 +1,28 @@
-# Vue 3 + Vite
+# 🌿 **Faunea**
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+**Faunea** est une application éducative interactive destinée aux enfants, visant à sensibiliser à la protection des espèces menacées. Le projet combine des fonctionnalités dynamiques avec une approche ludique pour encourager l'apprentissage.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
-# faunea
+---
+
+## 🚀 **Fonctionnalités**
+
+- **Page d'accueil dynamique** :  
+  Statistiques animées sur les espèces menacées et les impacts environnementaux.
+
+- **Carte interactive** :  
+  Affichage d'animaux menacés sur une carte avec des informations détaillées via des pop-ups.
+
+- **Quiz éducatif** :  
+  Un questionnaire ludique pour tester ses connaissances sur les espèces menacées.
+
+- **Page de ressources** :  
+  Liens externes et actions pour s'engager dans la protection de la faune.
+
+---
+
+## 🛠️ **Technologies utilisées**
+
+### Frontend
+- Vue.js 3 (Composition API)
+- Tailwind CSS pour le style
+- Leaflet pour la carte interactive

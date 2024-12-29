@@ -1,6 +1,8 @@
 <template>
   <div class="text-center p-4 bg-white2">
-    <h1 class="text-3xl font-bold text-coral mb-4 font-dynapuff">Carte Interactive des Espèces Menacées</h1>
+    <h1 class="text-3xl font-bold text-coral mb-4 font-dynapuff">
+      Carte Interactive des Espèces Menacées
+    </h1>
     <p class="text-lg mb-4">Cliquez sur les animaux pour en savoir plus sur chaque espèce !</p>
     <div id="map" class="map-container"></div>
   </div>
@@ -13,29 +15,37 @@ import speciesData from '../assets/especes.json';
 export default {
   name: 'MapViews',
   mounted() {
+    // Initialisation de la carte
     const map = L.map('map', {
       maxBounds: [
         [-90, -180],
         [90, 180]
       ],
-      maxZoom: 15 ,
+      maxZoom: 10,
       minZoom: 2,
-      maxBoundsViscosity: 1.0
-    }).setView([48.11848409836725, -1.702553629875183], 2);
+      maxBoundsViscosity: 0.0,
+      worldCopyJump: true,
+      // continuousWorld: true
+    }).setView([48.11848409836725, -1.702553629875183], 3);
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWxpY2VkZXIiLCJhIjoiY20zaWl0amZlMDE0cDJxcjJwd2QxNW01ZyJ9.GL-ZjGPy5iW2wgGciWShOA', {
-      attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      tileSize: 512,
-      zoomOffset: -1,
-      accessToken: 'pk.eyJ1IjoiYWxpY2VkZXIiLCJhIjoiY20zaWl0amZlMDE0cDJxcjJwd2QxNW01ZyJ9.GL-ZjGPy5iW2wgGciWShOA',  
-    }).addTo(map);
+    // Ajout des tuiles Mapbox
+    L.tileLayer(
+      'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWxpY2VkZXIiLCJhIjoiY20zaWl0amZlMDE0cDJxcjJwd2QxNW01ZyJ9.GL-ZjGPy5iW2wgGciWShOA',
+      {
+        attribution:
+          '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        tileSize: 512,
+        zoomOffset: -1
+      }
+    ).addTo(map);
 
-    speciesData.forEach(species => {
+    // Ajout des marqueurs et des popups
+    speciesData.forEach((species) => {
       const customIcon = L.icon({
         iconUrl: species.image,
         iconSize: [32, 32],
         iconAnchor: [16, 32],
-        popupAnchor: [0, -32],
+        popupAnchor: [0, 16] // Popup s'ouvre en bas
       });
 
       const marker = L.marker([species.lat, species.lon], { icon: customIcon }).addTo(map);
@@ -50,29 +60,32 @@ export default {
         </div>
       `;
 
-      marker.on('click', () => {
-        const mapCenter = map.getCenter();
-        const popupAnchor = species.lat > mapCenter.lat ? [0, -32] : [0, 32];
-        marker.bindPopup(popupContent, { autoPan: true, keepInView: true, autoPanPaddingTopLeft: [0, 50], popupAnchor }).openPopup();
+      // Ajout de la popup
+      marker.bindPopup(popupContent, {
+        offset: L.point(0, 16), // Ajuste l'offset pour afficher en dessous
+        autoPan: true,
+        keepInView: true,
+        autoPanPadding: [20, 20],
+        className: 'custom-popup'
       });
     });
   }
-}
+};
 </script>
 
 <style scoped>
 .map-container {
   width: 90%;
   height: 700px;
-  margin: 0 auto; 
+  margin: 0 auto;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .popup-content {
   font-size: 1rem;
-  max-width: 250px; /* Ensure the popup does not exceed a certain width */
-  word-wrap: break-word; /* Break long words to prevent overflow */
+  max-width: 250px;
+  word-wrap: break-word;
 }
 
 .popup-title {
@@ -83,5 +96,17 @@ export default {
 .popup-image {
   border-radius: 10px;
   object-fit: cover;
+}
+
+.leaflet-popup-content-wrapper {
+  transform: translateY(20px);
+  /* Décale le contenu sous l'icône */
+}
+
+.leaflet-popup-tip {
+  transform: rotate(180deg);
+  /* Flèche vers le bas */
+  bottom: -10px;
+  top: auto;
 }
 </style>

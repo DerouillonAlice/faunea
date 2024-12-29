@@ -1,7 +1,7 @@
 <template>
     <footer class="flex justify-center items-center gap-8 bg-peach text-white py-4 px-6">
       <div class="flex items-center gap-4">
-        <img src="../assets/img/logo_2.png" alt="Logo de l'application" class="w-12 h-12">
+        <img src="../assets/img/logo_2.png" alt="Logo de l'application" class="w-15 h-12 object-cover">
 
       </div>
   
