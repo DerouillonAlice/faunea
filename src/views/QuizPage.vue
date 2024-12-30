@@ -1,50 +1,72 @@
 <template>
-  <div class="relative w-full min-h-screen overflow-hidden bg-white2 flex flex-col justify-center">
-    <div class="quiz p-4 max-w-3xl mx-auto text-center flex flex-col justify-center">
-      <h1 class="text-3xl font-bold text-coral mb-4 font-dynapuff">Quiz : Teste tes connaissances sur les espèces menacées !</h1>
-      <p class="text-lg font-medium">Question {{ currentQuestionIndex + 1 }}/{{ questions.length }}</p>
-      <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+  <div class="relative w-full min-h-screen bg-white2 flex items-center justify-center p-4">
+    <div class="quiz bg-white shadow-xl rounded-xl p-6 max-w-2xl text-center flex flex-col items-center">
+      <h1 v-if="!quizCompleted" class="text-3xl font-bold text-coral mb-6 font-dynapuff">
+        Quiz : Teste tes connaissances sur les espèces menacées !
+      </h1>
+      <p v-if="!quizCompleted" class="text-lg font-medium text-gray-600">
+        Question {{ currentQuestionIndex + 1 }}/{{ questions.length }}
+      </p>
+      <div v-if="!quizCompleted" class="w-full bg-gray-200 rounded-full h-4 my-4">
         <div 
-          class="bg-peach h-4 rounded-full transition-all duration-300" 
+          class="bg-coral h-4 rounded-full transition-all duration-300" 
           :style="{ width: progress + '%' }"
         ></div>
       </div>
-      
-      <img :src="currentQuestion?.image" alt="Question Image" class="w-full h-64 object-cover mb-4" v-if="currentQuestion?.image">
 
-      <p class="text-xl font-semibold my-4">{{ currentQuestion?.question }}</p>
+      <img v-if="!quizCompleted && currentQuestion?.image" 
+           :src="currentQuestion?.image" 
+           alt="Question Image" 
+           class="w-full h-48 object-cover rounded-lg mb-6">
 
-      <div v-if="questions.length > 0" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <p v-if="!quizCompleted" class="text-xl font-semibold mb-4 text-gray-700">
+        {{ currentQuestion?.question }}
+      </p>
+
+      <div v-if="!quizCompleted && questions.length > 0" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <button 
           v-for="(option, index) in currentQuestion.options" 
           :key="index" 
           @click="checkAnswer(option.isCorrect)"
-          class="bg-sky text-white font-bold py-2 px-4 rounded-lg hover:bg-[##38bdf8] transition-colors"
+          class="bg-orange-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors"
         >
           {{ option.text }}
         </button>
       </div>
 
-      <p v-if="message" class="text-lg font-semibold mt-4" :class="{'text-mint': isCorrect, 'text-red-500': !isCorrect}">
+      <p v-if="message && !quizCompleted" 
+         class="text-lg font-semibold mt-6" 
+         :class="{'text-green-500': isCorrect, 'text-red-500': !isCorrect}">
         {{ message }}
       </p>
 
-      <div v-if="quizCompleted" class="mt-8">
-        <h2 class="text-2xl font-bold">Quiz terminé !</h2>
-        <p class="text-lg font-medium">Ton score : {{ score }}/{{ questions.length }}</p>
-        <button 
-          @click="resetQuiz" 
-          class="mt-4 bg-mint text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
-        >
-          Recommencer
-        </button>
+      <div v-if="quizCompleted" class="mt-8 text-center">
+        <h2 class="text-4xl font-bold text-orange-600 mb-4">Quiz terminé ! 🎉</h2>
+        <p class="text-3xl font-bold text-green-500 mb-4">Ton score : {{ score }}/{{ questions.length }}</p>
+        <p class="text-lg font-medium text-gray-700 mb-6">{{ finalMessage }}</p>
+        <div class="flex justify-center gap-4">
+          <button 
+            @click="resetQuiz" 
+            class="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition-colors"
+          >
+            Recommencer
+          </button>
+          <a href="/links" 
+            class="bg-orange-500 text-white py-2 px-6 rounded-lg hover:bg-orange-600 transition-colors"
+          >
+            Découvrir plus
+          </a>
+        </div>
       </div>
+      <canvas ref="confettiCanvas" class="absolute top-0 left-0 w-full h-full pointer-events-none"></canvas>
     </div>
   </div>
 </template>
 
+
 <script>
 import questionsData from "../assets/questions.json"; 
+import confetti from 'canvas-confetti';
 
 export default {
   data() {
@@ -54,7 +76,8 @@ export default {
       message: '',
       isCorrect: false,
       quizCompleted: false,
-      questions: []
+      questions: [],
+      finalMessage: ''
     };
   },
   computed: {
@@ -87,7 +110,46 @@ export default {
         this.currentQuestionIndex++;
       } else {
         this.quizCompleted = true;
+        this.finalMessage = this.getFinalMessage();
+        this.launchConfetti();
       }
+    },
+    getFinalMessage() {
+      if (this.score <= 3) {
+        return "Pas grave, c'est un bon début ! On apprend plein de choses en essayant. Tu peux recommencer pour améliorer ton score ! 🌱";
+      } else if (this.score <= 6) {
+        return "Bravo ! Tu connais déjà pas mal de choses sur les espèces menacées. Continue à apprendre pour devenir un expert ! 🐾";
+      } else if (this.score <= 9) {
+        return "Super ! Tu es presque un spécialiste des animaux menacés. Encore un peu d'effort pour atteindre la perfection ! 🌟";
+      } else {
+        return "Félicitations ! Tu es un véritable protecteur des animaux et un as des connaissances sur les espèces menacées ! 🏆🐼";
+      }
+    },
+    launchConfetti() {
+      const duration = 5 * 1000;
+      const end = Date.now() + duration;
+
+      const frame = () => {
+        confetti({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#bb0000', '#ffffff']
+        });
+        confetti({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#bb0000', '#ffffff']
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      };
+      frame();
     },
     resetQuiz() {
       this.currentQuestionIndex = 0;

@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-bold text-coral mb-4 font-dynapuff">
       Carte Interactive des Espèces Menacées
     </h1>
-    <p class="text-lg mb-4">Cliquez sur les animaux pour en savoir plus sur chaque espèce !</p>
+    <p class="text-lg mb-4">Cliques sur les animaux pour en savoir plus sur chaque espèce !</p>
     <div id="map" class="map-container"></div>
   </div>
 </template>
