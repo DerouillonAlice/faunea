@@ -5,7 +5,8 @@
     "options": [
       { "text": "2,500", "isCorrect": true },
       { "text": "1,000", "isCorrect": false },
-      { "text": "500", "isCorrect": false }
+      { "text": "500", "isCorrect": false },
+      { "text": "3,000", "isCorrect": false }
     ]
   },
   {
@@ -14,7 +15,8 @@
     "options": [
       { "text": "La chasse", "isCorrect": false },
       { "text": "La déforestation", "isCorrect": true },
-      { "text": "Le changement climatique", "isCorrect": false }
+      { "text": "Le changement climatique", "isCorrect": false },
+      { "text": "Les maladies", "isCorrect": false }
     ]
   },
   {
@@ -23,7 +25,8 @@
     "options": [
       { "text": "1,000", "isCorrect": true },
       { "text": "5,000", "isCorrect": false },
-      { "text": "10,000", "isCorrect": false }
+      { "text": "10,000", "isCorrect": false },
+      { "text": "2,000", "isCorrect": false }
     ]
   },
   {
@@ -32,7 +35,8 @@
     "options": [
       { "text": "Le Dodo", "isCorrect": true },
       { "text": "Le Kiwi", "isCorrect": false },
-      { "text": "Le Moa", "isCorrect": false }
+      { "text": "Le Moa", "isCorrect": false },
+      { "text": "Le Kakapo", "isCorrect": false }
     ]
   },
   {
@@ -41,7 +45,8 @@
     "options": [
       { "text": "L'Amazonie", "isCorrect": true },
       { "text": "Le Sahara", "isCorrect": false },
-      { "text": "L'Arctique", "isCorrect": false }
+      { "text": "L'Arctique", "isCorrect": false },
+      { "text": "La forêt de Bornéo", "isCorrect": false }
     ]
   },
   {
@@ -50,7 +55,8 @@
     "options": [
       { "text": "8,000", "isCorrect": true },
       { "text": "4,000", "isCorrect": false },
-      { "text": "2,000", "isCorrect": false }
+      { "text": "2,000", "isCorrect": false },
+      { "text": "10,000", "isCorrect": false }
     ]
   },
   {
@@ -59,7 +65,8 @@
     "options": [
       { "text": "50 ans", "isCorrect": false },
       { "text": "100 ans", "isCorrect": true },
-      { "text": "20 ans", "isCorrect": false }
+      { "text": "20 ans", "isCorrect": false },
+      { "text": "75 ans", "isCorrect": false }
     ]
   },
   {
@@ -68,7 +75,8 @@
     "options": [
       { "text": "Le Botswana", "isCorrect": true },
       { "text": "L'Afrique du Sud", "isCorrect": false },
-      { "text": "Le Kenya", "isCorrect": false }
+      { "text": "Le Kenya", "isCorrect": false },
+      { "text": "La Tanzanie", "isCorrect": false }
     ]
   },
   {
@@ -77,7 +85,8 @@
     "options": [
       { "text": "Le Panda géant", "isCorrect": true },
       { "text": "Le Tigre", "isCorrect": false },
-      { "text": "La Baleine bleue", "isCorrect": false }
+      { "text": "La Baleine bleue", "isCorrect": false },
+      { "text": "Le Rhinocéros", "isCorrect": false }
     ]
   },
   {
@@ -86,7 +95,8 @@
     "options": [
       { "text": "Union Internationale pour la Conservation de la Nature", "isCorrect": true },
       { "text": "Union pour les Intérêts des Créatures Naturelles", "isCorrect": false },
-      { "text": "Union Internationale des Créatures Naturelles", "isCorrect": false }
+      { "text": "Union Internationale des Créatures Naturelles", "isCorrect": false },
+      { "text": "Union Internationale pour les Espèces Menacées", "isCorrect": false }
     ]
   }
 ]
