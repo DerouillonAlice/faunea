@@ -1,6 +1,6 @@
 [
   {
-    "question": "Combien d'individus de tigre du Bengale restent-ils dans le monde ?",
+    "question": "Combien reste-t-il de tigres du Bengale dans le monde ?",
     "image": "/img/questions/question1.jpg",
     "options": [
       { "text": "2,500", "isCorrect": true },
@@ -10,17 +10,17 @@
     ]
   },
   {
-    "question": "Quelle est la principale menace pour les pandas géants ?",
+    "question": "Quelle est la plus grande menace pour les pandas géants ?",
     "image": "/img/questions/question2.jpg",
     "options": [
       { "text": "La chasse", "isCorrect": false },
-      { "text": "La déforestation", "isCorrect": true },
-      { "text": "Le changement climatique", "isCorrect": false },
+      { "text": "La destruction des forêts", "isCorrect": true },
+      { "text": "Le climat", "isCorrect": false },
       { "text": "Les maladies", "isCorrect": false }
     ]
   },
   {
-    "question": "Quelle est la population estimée des gorilles de montagne ?",
+    "question": "Combien de gorilles de montagne vivent encore aujourd'hui ?",
     "image": "/img/questions/question3.jpg",
     "options": [
       { "text": "1,000", "isCorrect": true },
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "question": "Quel oiseau, aujourd'hui disparu, était endémique de l'île Maurice ?",
+    "question": "Quel oiseau a disparu et vivait seulement sur l'île Maurice ?",
     "image": "/img/questions/question4.jpg",
     "options": [
       { "text": "Le Dodo", "isCorrect": true },
@@ -40,17 +40,17 @@
     ]
   },
   {
-    "question": "Quelle région abrite le plus d'espèces menacées ?",
+    "question": "Dans quelle région trouve-t-on le plus d'animaux en danger ?",
     "image": "/img/questions/question5.jpg",
     "options": [
       { "text": "L'Amazonie", "isCorrect": true },
-      { "text": "Le Sahara", "isCorrect": false },
+      { "text": "Le désert du Sahara", "isCorrect": false },
       { "text": "L'Arctique", "isCorrect": false },
       { "text": "La forêt de Bornéo", "isCorrect": false }
     ]
   },
   {
-    "question": "Combien d'espèces sont classées en danger critique d'extinction ?",
+    "question": "Combien d'animaux sont en danger critique dans le monde ?",
     "image": "/img/questions/question6.jpg",
     "options": [
       { "text": "8,000", "isCorrect": true },
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "question": "Quelle est la durée de vie moyenne d'une tortue de mer ?",
+    "question": "Combien de temps vit une tortue de mer en moyenne ?",
     "image": "/img/questions/question7.jpg",
     "options": [
       { "text": "50 ans", "isCorrect": false },
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "question": "Quel pays possède la plus grande population d'éléphants d'Afrique ?",
+    "question": "Dans quel pays trouve-t-on le plus d'éléphants d'Afrique ?",
     "image": "/img/questions/question8.jpg",
     "options": [
       { "text": "Le Botswana", "isCorrect": true },
@@ -80,7 +80,7 @@
     ]
   },
   {
-    "question": "Quel animal est l'emblème des espèces menacées ?",
+    "question": "Quel animal est devenu le symbole des animaux en danger ?",
     "image": "/img/questions/question9.jpg",
     "options": [
       { "text": "Le Panda géant", "isCorrect": true },
@@ -90,13 +90,13 @@
     ]
   },
   {
-    "question": "Que signifie l'acronyme UICN ?",
+    "question": "Que veut dire l'acronyme UICN ?",
     "image": "/img/questions/question10.jpg",
     "options": [
-      { "text": "Union Internationale pour la Conservation de la Nature", "isCorrect": true },
-      { "text": "Union pour les Intérêts des Créatures Naturelles", "isCorrect": false },
-      { "text": "Union Internationale des Créatures Naturelles", "isCorrect": false },
-      { "text": "Union Internationale pour les Espèces Menacées", "isCorrect": false }
+      { "text": "Union Internationale pour la Protection de la Nature", "isCorrect": true },
+      { "text": "Union pour les Animaux en Danger", "isCorrect": false },
+      { "text": "Union Internationale des Animaux Sauvages", "isCorrect": false },
+      { "text": "Union Internationale des Forêts", "isCorrect": false }
     ]
   }
 ]
