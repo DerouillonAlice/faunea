@@ -84,7 +84,6 @@ export default {
             this.initBarChart();
           } else if (entry.target === this.$refs.doughnutChart) {
             this.initDoughnutChart();
-            this.animateDoughnutChart(); 
           } else if (entry.target === this.$refs.number) {
             this.animateNumber();
             observer.unobserve(entry.target); // Arrêter l'observation une fois animé
@@ -151,7 +150,7 @@ export default {
           labels: ['Pollué', 'Non pollué'],
           datasets: [
             {
-              data: this.doughnutData, // Données initiales
+              data: this.finalDoughnutData, // Données finales
               backgroundColor: ['#36A2EB', '#FFCD56'], // Bleu pour pollué, jaune pour non pollué
             },
           ],
@@ -162,37 +161,9 @@ export default {
           plugins: {
             legend: { position: 'bottom' },
           },
-          animation: { duration: 0 }, // Pas d'animation par défaut
+          animation: { duration: 0 }, // Pas d'animation
         },
       });
-    },
-    animateDoughnutChart() {
-      const targetPollution = this.finalDoughnutData[0]; // 40%
-      const totalDuration = 2000; // Durée totale de l'animation
-      const stepDuration = 50; // Pas entre chaque mise à jour
-      const steps = totalDuration / stepDuration; // Nombre d'étapes
-      const increment = targetPollution / steps; // Progression à chaque étape
-
-      let currentPollution = 0;
-
-      const interval = setInterval(() => {
-        currentPollution += increment;
-
-        if (currentPollution >= targetPollution) {
-          currentPollution = targetPollution; // Arrêter à la valeur cible
-          clearInterval(interval);
-        }
-
-        // Mise à jour des données
-        if (this.doughnutChart && this.doughnutChart.data && this.doughnutChart.data.datasets[0]) {
-          this.doughnutChart.data.datasets[0].data = [
-            currentPollution,
-            100 - currentPollution,
-          ];
-          // Mettre à jour le graphique
-          this.doughnutChart.update('none'); // 'none' désactive les animations internes
-        }
-      }, stepDuration);
     },
     animateCard2() {
       anime({
