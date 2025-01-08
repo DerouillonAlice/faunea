@@ -1,93 +1,114 @@
 <template>
   <div class="p-6 bg-white2 min-h-screen">
     <h1 class="text-4xl font-bold text-coral mb-8 font-dynapuff text-center">Sauvons les animaux ensemble !</h1>
-    <p class="text-lg font-medium text-center mb-10 text-gray-700">Découvre comment tu peux contribuer à la protection des espèces en voie de disparition.</p>
+    <p class="text-lg font-medium text-center mb-10 text-gray-700">Découvre comment tu peux contribuer à la protection
+      des espèces en voie de disparition.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-  <!-- Section "Comment Aider ?" -->
-  <div class="bg-sky shadow-lg p-8 rounded-2xl">
-    <h2 class="text-3xl font-bold text-white mb-6">Comment devenir un super-héros de la nature ? 🦸‍♂️
-    </h2>
-    <ul class="space-y-6">
-      <li class="flex items-center gap-4">
-        <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
-          <Icon name="Recycle" size="28" color="#0ea5e9" strokeWidth="2" />
-        </div>
-        <div class="text-white text-lg font-medium">Recycle et réduis tes déchets</div>
-        <button @click="showMoreInfo('recycle')" class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
-          <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
-        </button>
-      </li>
-      <li class="flex items-center gap-4">
-        <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
-          <Icon name="ShoppingBag" size="28" color="#0ea5e9" strokeWidth="2" />
-        </div>
-        <div class="text-white text-lg font-medium">Utilise moins de plastique</div>
-        <button @click="showMoreInfo('plastic')" class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
-          <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
-        </button>
-      </li>
-      <li class="flex items-center gap-4">
-        <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
-          <Icon name="TreePine" size="28" color="#0ea5e9" strokeWidth="2" />
-        </div>
-        <div class="text-white text-lg font-medium">Plante des arbres</div>
-        <button @click="showMoreInfo('trees')" class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
-          <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
-        </button>
-      </li>
-      <li class="flex items-center gap-4">
-        <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
-          <Icon name="Droplet" size="28" color="#0ea5e9" strokeWidth="2" />
-        </div>
-        <div class="text-white text-lg font-medium">Économise l'eau</div>
-        <button @click="showMoreInfo('water')" class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
-          <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
-        </button>
-      </li>
-      <li class="flex items-center gap-4">
-        <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
-          <Icon name="Heart" size="28" color="#0ea5e9" strokeWidth="2" />
-        </div>
-        <div class="text-white text-lg font-medium">Participe à des programmes de conservation</div>
-        <button @click="showMoreInfo('conservation')" class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
-          <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
-        </button>
-      </li>
-    </ul>
-  </div>
+      <!-- Section "Comment Aider ?" -->
+      <div class="bg-sky shadow-lg p-8 rounded-2xl">
+        <h2 class="text-3xl font-bold text-white mb-6">Comment devenir un super-héros de la nature ? 🦸‍♂️
+        </h2>
+        <ul class="space-y-6">
+          <li class="flex items-center gap-4">
+            <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
+              <Icon name="Recycle" size="28" color="#0ea5e9" strokeWidth="2" />
+            </div>
+            <div class="text-white text-lg font-medium">Recycle et réduis tes déchets</div>
+            <button @click="showMoreInfo('recycle')"
+              class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
+              <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
+            </button>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
+              <Icon name="ShoppingBag" size="28" color="#0ea5e9" strokeWidth="2" />
+            </div>
+            <div class="text-white text-lg font-medium">Utilise moins de plastique</div>
+            <button @click="showMoreInfo('plastic')"
+              class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
+              <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
+            </button>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
+              <Icon name="TreePine" size="28" color="#0ea5e9" strokeWidth="2" />
+            </div>
+            <div class="text-white text-lg font-medium">Plante des arbres</div>
+            <button @click="showMoreInfo('trees')"
+              class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
+              <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
+            </button>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
+              <Icon name="Droplet" size="28" color="#0ea5e9" strokeWidth="2" />
+            </div>
+            <div class="text-white text-lg font-medium">Économise l'eau</div>
+            <button @click="showMoreInfo('water')"
+              class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
+              <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
+            </button>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="bg-white p-4 rounded-full shadow-lg flex items-center justify-center">
+              <Icon name="Heart" size="28" color="#0ea5e9" strokeWidth="2" />
+            </div>
+            <div class="text-white text-lg font-medium">Participe à des programmes de conservation</div>
+            <button @click="showMoreInfo('conservation')"
+              class="ml-auto bg-white text-sky-500 h-10 w-10 rounded-full shadow-md flex items-center justify-center">
+              <Icon name="ArrowRight" size="20" color="#0ea5e9" strokeWidth="2" />
+            </button>
+          </li>
+        </ul>
+      </div>
 
-  <!-- Section "Liens Utiles" -->
-  <div class="bg-mint shadow-lg p-8 rounded-2xl">
-  <h2 class="text-3xl font-bold text-white mb-6">Pour en savoir plus ! 📚</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <a href="https://www.wwf.fr/" target="_blank" class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
-      <div class="text-mint-600 text-2xl font-bold mb-4">WWF</div>
-      <p class="text-gray-700">Protection des espèces</p>
-    </a>
-    <a href="https://www.nationalgeographic.fr/" target="_blank" class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
-      <div class="text-mint-600 text-2xl font-bold mb-4">National Geographic</div>
-      <p class="text-gray-700">Explorer le monde</p>
-    </a>
-    <a href="https://www.iucnredlist.org/" target="_blank" class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
-      <div class="text-mint-600 text-2xl font-bold mb-4">Liste Rouge</div>
-      <p class="text-gray-700">UICN - Espèces menacées</p>
-    </a>
-  </div>
-</div>
+      <!-- Section "Liens Utiles" -->
+      <div class="bg-mint shadow-lg p-8 rounded-2xl">
+        <h2 class="text-3xl font-bold text-white mb-6">Pour en savoir plus ! 📚</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a href="https://www.wwf.fr/" target="_blank"
+            class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
+            <div class="text-mint-600 text-2xl font-bold mb-4">WWF</div>
+            <p class="text-gray-700">Protection des espèces</p>
+          </a>
+          <a href="https://www.nationalgeographic.fr/" target="_blank"
+            class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
+            <div class="text-mint-600 text-2xl font-bold mb-4">National Geographic</div>
+            <p class="text-gray-700">Explorer le monde</p>
+          </a>
+          <a href="https://www.iucnredlist.org/" target="_blank"
+            class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
+            <div class="text-mint-600 text-2xl font-bold mb-4">Liste Rouge</div>
+            <p class="text-gray-700">UICN - Espèces menacées</p>
+          </a>
+          <a href="https://www.youtube.com/watch?v=xDbyIHgARxM" target="_blank"
+            class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
+            <div class="text-mint-600 text-2xl font-bold mb-4">Youtube - Info ou Mytho ?</div>
+            <p class="text-gray-700">Vidéo - C'est quoi une espèce menacée ?</p>
+          </a>
 
-</div>
+          <a href="https://www.youtube.com/watch?v=9B2-mbSgcN0" target="_blank"
+            class="block bg-white transition-all hover:scale-[110%] p-6 rounded-xl shadow-md hover:shadow-lg text-center">
+            <div class="text-mint-600 text-2xl font-bold mb-4">Youtube - C'est pas sorcier</div>
+            <p class="text-gray-700">Video - A quelle vitesse disparaissent les espèces animales ?</p>
+          </a>
+        </div>
+      </div>
+    </div>
 
 
     <div v-if="moreInfo" class="mt-12 p-8 bg-white shadow-xl rounded-2xl">
       <h3 class="text-3xl font-bold text-coral mb-6">{{ moreInfo.title }}</h3>
       <p class="text-lg text-gray-700">{{ moreInfo.content }}</p>
-      <button @click="closeMoreInfo" class="mt-6 bg-coral text-white py-3 px-6 rounded-full shadow-md hover:bg-coral-dark">Fermer</button>
+      <button @click="closeMoreInfo"
+        class="mt-6 bg-coral text-white py-3 px-6 rounded-full shadow-md hover:bg-coral-dark">Fermer</button>
     </div>
 
     <div class="mt-16 text-center">
       <h2 class="text-3xl font-bold text-coral mb-6">Découvre des faits incroyables !</h2>
-      <p class="text-lg font-medium text-gray-700 mb-6">Apprend des faits amusants sur les animaux en voie de disparition !</p>
+      <p class="text-lg font-medium text-gray-700 mb-6">Apprend des faits amusants sur les animaux en voie de
+        disparition !</p>
       <div class="relative w-full max-w-3xl mx-auto">
         <div class="overflow-hidden rounded-2xl shadow-lg">
           <div class="flex transition-transform duration-500"
@@ -95,7 +116,8 @@
             <div v-for="(fact, index) in funFacts" :key="index"
               :class="['min-w-full p-8 text-white text-center', colors[index % colors.length]]">
               <h3 class="text-2xl font-bold mb-4">Le savais-tu ? 🤔</h3>
-              <img :src="fact.image" alt="Fun fact image" class="mx-auto mb-4 w-32 h-32 object-cover border-4 border-white rounded-full">
+              <img :src="fact.image" alt="Fun fact image"
+                class="mx-auto mb-4 w-32 h-32 object-cover border-4 border-white rounded-full">
               <p>{{ fact.text }}</p>
             </div>
           </div>

@@ -2,15 +2,24 @@
   <div class="relative w-full overflow-hidden bg-white2">
     <!-- Contenu de la page -->
     <div class="relative">
-      <img src="../assets/img/home_header.jpg" alt="Header Image" class="w-full h-[30rem] object-cover">
+      <img src="../assets/img/home_header.jpg" alt="Header Image" class="w-full h-[38rem] object-cover">
       <div class="absolute bottom-5 right-5 bg-coral text-white p-4 rounded-md">
         <h1 class="text-2xl font-bold text-white">À la rescousse des Animaux</h1>
       </div>
     </div>
 
+    <!-- Arrow indicating to scroll down -->
+    <div class="flex justify-center my-8">
+      <button @click="scrollToFirstBlock">
+        <svg class="animate-bounce w-24 h-24 text-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+    </div>
+
     <!-- Blocs animés -->
-    <div class="bg-sky p-8 text-center rounded-xl mx-4 my-8" >
-      <p class="text-2xl font-bold text-white2" >Espèces menacées dans le monde</p>
+    <div ref="firstBlock" class="bg-sky p-8 text-center rounded-xl mx-4 my-8">
+      <p class="text-2xl font-bold text-white2">Espèces menacées dans le monde</p>
       <p ref="number" class="font-extrabold text-[60px] text-white2">{{ animatedNumber }}</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
@@ -43,15 +52,15 @@
 
     <!-- Découvrir les animaux -->
     <div class="text-center bg-sky p-8 rounded-xl mx-4 my-8">
-      <p class="text-xl font-semibold text-blue-600">Découvre les animaux par région</p>
+      <p class="text-xl font-semibold text-blue-600">Découvre les espèces menacées par pays</p>
       <div class="flex justify-center">
     <Icon name="earth" size="120" color="white" strokeWidth="2" />
   </div>
   <router-link
     to="/map"
-    class="bg-yellow-500 text-white py-2 px-6 rounded-full mt-6 inline-flex items-center justify-center"
+    class="bg-yellow-500 text-white py-2 px-6 rounded-full mt-6 inline-flex items-center justify-center font-bold hover:scale-110 transition-transform"
   >
-    Explore
+    C'est parti !
   </router-link>
     </div>
   </div>
@@ -70,29 +79,41 @@ export default {
       barChart: null, 
       doughnutChart: null,
       animatedNumber: 0, 
-      targetNumber: 41415,
-      barData: [25, 30, 20, 15, 10], 
+      targetNumber: 46300,
+      barData: [26, 12, 41, 21, 37], 
       doughnutData: [0, 100], 
       finalDoughnutData: [40, 60], 
+      animationsCompleted: { // Indicateurs pour les animations
+        barChart: false,
+        doughnutChart: false,
+        number: false,
+        card2: false,
+        card4: false,
+      },
     };
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target === this.$refs.barChart) {
+          if (entry.target === this.$refs.barChart && !this.animationsCompleted.barChart) {
             this.initBarChart();
-          } else if (entry.target === this.$refs.doughnutChart) {
+            this.animationsCompleted.barChart = true;
+          } else if (entry.target === this.$refs.doughnutChart && !this.animationsCompleted.doughnutChart) {
             this.initDoughnutChart();
-          } else if (entry.target === this.$refs.number) {
+            this.animationsCompleted.doughnutChart = true;
+          } else if (entry.target === this.$refs.number && !this.animationsCompleted.number) {
             this.animateNumber();
-            observer.unobserve(entry.target); // Arrêter l'observation une fois animé
-          } else if (entry.target === this.$refs.card2) {
+            this.animationsCompleted.number = true;
+            observer.unobserve(entry.target);
+          } else if (entry.target === this.$refs.card2 && !this.animationsCompleted.card2) {
             this.animateCard2();
-            observer.unobserve(entry.target); // Arrêter l'observation une fois animé
-          } else if (entry.target === this.$refs.card4) {
+            this.animationsCompleted.card2 = true;
+            observer.unobserve(entry.target);
+          } else if (entry.target === this.$refs.card4 && !this.animationsCompleted.card4) {
             this.animateCard4();
-            observer.unobserve(entry.target); // Arrêter l'observation une fois animé
+            this.animationsCompleted.card4 = true;
+            observer.unobserve(entry.target);
           }
         }
       });
@@ -105,6 +126,9 @@ export default {
     observer.observe(this.$refs.card4);
   },
   methods: {
+    scrollToFirstBlock() {
+      this.$refs.firstBlock.scrollIntoView({ behavior: 'smooth' });
+    },
     animateNumber() {
       anime({
         targets: this,
@@ -118,14 +142,15 @@ export default {
       if (this.barChart) {
         this.barChart.destroy();
       }
+      const initialData = this.barData.map(() => 0);
       this.barChart = new Chart(this.$refs.barChart, {
         type: 'bar',
         data: {
-          labels: ['Mammifères', 'Oiseaux', 'Amphibiens', 'Reptiles', 'Poissons'],
+          labels: ['Mammifères', 'Oiseaux', 'Amphibiens', 'Reptiles', 'Requins & Raies'],
           datasets: [
             {
               label: 'Espèces menacées (%)',
-              data: this.barData,
+              data: initialData,
               backgroundColor: ['#F78DA7', '#36A2EB', '#4BC0C0', '#FF9F40', '#FFCD56'],
             },
           ],
@@ -136,7 +161,14 @@ export default {
           plugins: {
             legend: { display: false },
           },
-          animation: { duration: 1500 },
+          animation: {
+            onComplete: (animation) => {
+              const chart = animation.chart;
+              chart.data.datasets[0].data = this.barData;
+              chart.update();
+            },
+            duration: 5000,
+          },
         },
       });
     },
@@ -144,14 +176,15 @@ export default {
       if (this.doughnutChart) {
         this.doughnutChart.destroy();
       }
+      const initialData = [0, 60];
       this.doughnutChart = new Chart(this.$refs.doughnutChart, {
         type: 'doughnut',
         data: {
           labels: ['Pollué', 'Non pollué'],
           datasets: [
             {
-              data: this.finalDoughnutData, // Données finales
-              backgroundColor: ['#36A2EB', '#FFCD56'], // Bleu pour pollué, jaune pour non pollué
+              data: initialData,
+              backgroundColor: ['#36A2EB', '#FFCD56'],
             },
           ],
         },
@@ -161,7 +194,14 @@ export default {
           plugins: {
             legend: { position: 'bottom' },
           },
-          animation: { duration: 0 }, // Pas d'animation
+          animation: {
+            onComplete: (animation) => {
+              const chart = animation.chart;
+              chart.data.datasets[0].data = this.finalDoughnutData;
+              chart.update();
+            },
+            duration: 1000,
+          },
         },
       });
     },
@@ -186,6 +226,7 @@ export default {
   },
 };
 </script>
+
 
 <script setup>
 import Icon from '../components/Icon.vue'; 
